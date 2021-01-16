@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Legbook</title>
+    <link rel="stylesheet" href="styles/event/main.css">
+    <link rel="shortcut icon" href="images/icon.png">
+    <link rel="stylesheet" href="styles/logo.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+
+            <div class="logo">
+                <a href="index2.html" class="next-page">
+                    <img src="images/logo.png" alt="logo">
+                </a>
+                <a href="messenger.html">
+                    <div class="next-page">
+                        <img src="images/message.png" alt="message">
+                        <span>Messenger</span>
+                    </div>
+                </a>
+
+                <a href="posts.html">
+                    <div class="next-page">
+                        <img src="images/post.png" alt="events">
+                        <span>Post</span>
+                    </div>
+                </a>
+            </div>
+
+        </header>
+
+        <main>
+            <div class="create-event">
+                    <div class="box-form">
+                        <div class="name-label"></div>
+                        <input type="text" class="input-form name-input" placeholder="Event Name">
+                    </div>
+
+                    <div class="box-form">
+                        <div class="label">Time</div>
+                        <input type="time" class="input-form time-input">
+                    </div>
+
+                    <div class="box-form">
+                        <div class="label">Start Date</div>
+                        <input type="date" class="input-form date-start-value">
+                    </div>
+
+                    <div class="line-form date-end">
+                       <button class="label-end-date-open"> + Add End Date</button>
+                    </div>
+
+                    <div class="box-form">
+                        <div class="add-description">Description</div>
+                        <textarea class="input-form value-description"></textarea>
+                    </div>
+            </div>
+
+            <div class="view-event">
+                <div class="createD-event">
+
+                    <div class="callendar-page">
+                        <div class="callendarStart-page"></div>
+                    </div>
+                    <div class="date-info dateStart-info"></div>
+                    <div class="date-info dateEnd-info"></div>
+                    <div class="time-info"></div>
+                    <div class="event-name">Name</div>
+                    <div class="description">Aa.</div>
+                    <!--dodawanie zdjęć-->
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+    <script src="script/event/main.js"></script>
+    <script src="script/event/creatorEvent.js"></script>
+    <script src="script/event/setLocalTime.js"></script>
+
+</body>
+
+</html>

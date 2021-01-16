@@ -1,0 +1,26 @@
+.logo {
+  --eventColor: #be4bdb;
+  --messageColor: #1a65d7;
+  --postColor: #fd7e14;
+  display: flex;
+  justify-content: flex-start;
+}
+.logo > a {
+  text-decoration: none;
+}
+.next-page {
+  margin-right: 1em;
+}
+.next-page {
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.next-page > span {
+  font-size: 0;
+}
+@media (min-width: 1100px) {
+  .next-page > span {
+    font-size: 1.8em;
+  }
+}
