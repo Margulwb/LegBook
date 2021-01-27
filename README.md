@@ -1,1 +1,1 @@
-Live : https://legbook-live.netlify.app/
+Live : https://llegbook.netlify.app/
