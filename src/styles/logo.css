@@ -19,7 +19,7 @@
 .next-page > span {
   font-size: 0;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   .next-page > span {
     font-size: 1.8em;
   }

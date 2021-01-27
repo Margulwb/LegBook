@@ -12,23 +12,23 @@
 </head>
 
 <body>
-    <div class="layout-post is-close">
-        <div class="layout-post-exit">
-            <img src="images/exit.png" alt="exit">
-        </div>
-        <div class="layout-input">
-            <div class="user-input-avatar">
-                <img src="images/user.png" alt="user">
+    <div class="layout">
+        <div class="layout-post is-close">
+            <div class="layout-post-exit">
+                <img src="images/exit.png" id="exitImage" alt="exit">
             </div>
+            <div class="layout-input">
+                <div class="user-input-avatar">
+                    <img src="images/user.png" alt="user">
+                </div>
                 <div class="user-input-text-area">
                     <textarea placeholder="Aa" wrap="hard" col="10" class="post-value" contenteditable></textarea>
                 </div>
-        </div>
-
-            <div class="layout-post-button">
-                <button class="button-exit">Post</button>
             </div>
-
+            <div class="layout-post-button">
+                <button class="button-post">Post</button>
+            </div>
+        </div>
     </div>
 
     <div class="container">
@@ -71,8 +71,8 @@
             <div class="view-post"></div>
         </main>
     </div>
-    <script src="script/post/main.js"></script>
-    <script src="script/post/createPost.js"></script>
+    <script type="module" src="script/post/main.js"></script>
+   <!--  <script src="script/post/createPost.js"></script> -->
 </body>
 
 </html>

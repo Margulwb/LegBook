@@ -23,8 +23,8 @@ function creatorEvent(dateStartEl, timeEl, callendarPageStartEl) {
         },
 
         dateStart(){
-            let date = new Date(dateStartValue.value).toDateString()
-            dateStartEl.innerHTML = date
+            let dateStart = new Date(dateStartValue.value).toDateString()
+            dateStartEl.innerHTML = dateStart
 
             let day = new Date(dateStartValue.value)
             const callendarPage = `${day.getDate()}`
@@ -81,6 +81,28 @@ function creatorEvent(dateStartEl, timeEl, callendarPageStartEl) {
             
         },
 
+        removeDateEnd(){
+            let callendarPageEl = document.querySelector('.callendar-page')
+                
+            if(document.querySelector('.arrow') && document.querySelector('.callendarEnd-page')){
+                let arrow = document.querySelector('.arrow')
+                callendarPageEl.removeChild(arrow)
+
+                let callendarEndPage = document.querySelector('.callendarEnd-page')
+                callendarPageEl.removeChild(callendarEndPage)
+            }
+            let dateClose = document.querySelector('.date-end-el')
+            let labelClose = document.querySelector('.label-end-date-close')
+            let dateInfo = document.querySelector('.created-event')
+            
+            dateEnd.removeChild(dateClose)
+            dateEnd.removeChild(labelClose)
+            dateEnd.appendChild(labelEndDateOpen)
+
+            let infoDateClose = document.querySelector('.dateEnd-info')
+            infoDateClose.textContent=''
+        }, 
+
         createDateEnd(event){
             event.preventDefault()
 
@@ -102,29 +124,8 @@ function creatorEvent(dateStartEl, timeEl, callendarPageStartEl) {
             dateEndValue.addEventListener('input', creatorEndDate.typeEndDate)
             
             labelEndDateClose.addEventListener('click', creatorEndDate.removeDateEnd)
-        },
-
-         removeDateEnd(){
-            let callendarPageEl = document.querySelector('.callendar-page')
-                
-            if(document.querySelector('.arrow') && document.querySelector('.callendarEnd-page')){
-                let arrow = document.querySelector('.arrow')
-                callendarPageEl.removeChild(arrow)
-
-                let callendarEndPage = document.querySelector('.callendarEnd-page')
-                callendarPageEl.removeChild(callendarEndPage)
-            }
-            let dateClose = document.querySelector('.date-end-el')
-            let labelClose = document.querySelector('.label-end-date-close')
-            let dateInfo = document.querySelector('.created-event')
-            
-            dateEnd.removeChild(dateClose)
-            dateEnd.removeChild(labelClose)
-            dateEnd.appendChild(labelEndDateOpen)
-
-            let infoDateClose = document.querySelector('.dateEnd-info')
-            infoDateClose.textContent=''
-        } 
+        }
+         
     }
 
     labelEndDateOpen.addEventListener('click',creatorEndDate.createDateEnd)

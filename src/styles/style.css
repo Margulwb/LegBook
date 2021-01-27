@@ -4,12 +4,12 @@
   box-sizing: border-box;
 }
 body {
-  box-sizing: inherit;
-  background-color: #38445e;
-  font-family: monospace;
   --eventColor: #be4bdb;
   --messageColor: #1a65d7;
   --postColor: #fd7e14;
+  box-sizing: inherit;
+  background-color: #38445e;
+  font-family: monospace;
 }
 .container {
   display: grid;
@@ -32,11 +32,17 @@ header {
   position: fixed;
 }
 .welcomeBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
   text-align: center;
 }
 .welcomeBox > h1 {
-  color: rgb(100, 190, 241);
+  color: #64bef1;
   font-size: 5em;
+  width: 30%;
+  border-bottom: 3px solid #64bef1;
 }
 .welcomeBox > h2 {
   color: #b0bcd4;
