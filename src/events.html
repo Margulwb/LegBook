@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events | Legbook</title>
     <link rel="stylesheet" href="styles/event/main.css">
+    <link rel="stylesheet" href="styles/event/rwd.css">
+    <link rel="stylesheet" href="styles/event/animatedStyle.css">
     <link rel="shortcut icon" href="images/icon.png">
     <link rel="stylesheet" href="styles/logo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="styles/fontawesome/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -21,14 +26,14 @@
                 </a>
                 <a href="messenger.html">
                     <div class="next-page">
-                        <img src="images/message.png" alt="message">
+                        <i class="fas fa-comment-dots fa-2x messenger-icon"></i>
                         <span>Messenger</span>
                     </div>
                 </a>
 
                 <a href="posts.html">
                     <div class="next-page">
-                        <img src="images/post.png" alt="events">
+                        <i class="fas fa-address-card fa-2x post-icon"></i>
                         <span>Post</span>
                     </div>
                 </a>
@@ -38,29 +43,31 @@
 
         <main>
             <div class="create-event">
-                    <div class="box-form">
-                        <div class="name-label"></div>
-                        <input type="text" class="input-form name-input" placeholder="Event Name">
-                    </div>
+                <div class="box-form">
+                    <div class="name-label"></div>
+                    <input type="text" class="input-form name-input" placeholder="Event Name">
+                </div>
 
-                    <div class="box-form">
-                        <div class="label">Time</div>
-                        <input type="time" class="input-form time-input">
-                    </div>
+                <div class="box-form">
+                    <div class="label">Time</div>
+                    <input type="time" class="input-form time-input">
+                </div>
+                <div class="line-form time-end">
+                    <div class="label-end-time-close"> + Add End Time</div>
+                </div>
+                <div class="box-form">
+                    <div class="label">Start Date</div>
+                    <input type="date" class="input-form date-start-value">
+                </div>
 
-                    <div class="box-form">
-                        <div class="label">Start Date</div>
-                        <input type="date" class="input-form date-start-value">
-                    </div>
+                <div class="line-form date-end">
+                    <button class="label-end-date-open" title="+ Add End Date"> + Add End Date</button>
+                </div>
 
-                    <div class="line-form date-end">
-                       <button class="label-end-date-open"> + Add End Date</button>
-                    </div>
-
-                    <div class="box-form">
-                        <div class="add-description">Description</div>
-                        <textarea class="input-form value-description"></textarea>
-                    </div>
+                <div class="box-form">
+                    <div class="add-description">Description</div>
+                    <textarea class="input-form value-description" contenteditable></textarea>
+                </div>
             </div>
 
             <div class="view-event">
@@ -71,19 +78,19 @@
                     </div>
                     <div class="date-info dateStart-info"></div>
                     <div class="date-info dateEnd-info"></div>
-                    <div class="time-info"></div>
+                    <div class="time">
+                        <div class="time-info"></div>
+                        <div class="time-end-info"></div>
+                    </div>
                     <div class="event-name">Name</div>
                     <div class="description">Aa.</div>
-                    <!--dodawanie zdjęć-->
                 </div>
             </div>
 
         </main>
 
     </div>
-    <script src="script/event/main.js"></script>
-    <script src="script/event/creatorEvent.js"></script>
-    <script src="script/event/setLocalTime.js"></script>
+    <script type="module" src="script/event/main.js"></script>
 
 </body>
 

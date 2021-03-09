@@ -1,4 +1,4 @@
-function setLocalTime(dateEl, timeEl, callendarPageEl) {
+export function SetLocalTime(dateEl, timeEl, callendarPageEl) {
     const now = new Date()
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -23,8 +23,9 @@ function setLocalTime(dateEl, timeEl, callendarPageEl) {
     localTime.showDate(days, month, now)
     localTime.showTime(now)
     localTime.showToday(now)
-}
 
-function genitive(i) {
-    return `${i}`.padStart(2, "0")
+    function genitive(i) {
+        return `${i}`.padStart(2, "0")
+    }
+
 }

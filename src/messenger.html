@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messenger | Legbook</title>
     <link rel="stylesheet" href="styles/messenger/main.css">
+    <link rel="stylesheet" href="styles/messenger/RWD.css">
     <link rel="shortcut icon" href="images/icon.png">
     <link rel="stylesheet" href="styles/logo.css">
+    <link rel="stylesheet" href="styles/fontawesome/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -18,17 +21,17 @@
                 <a href="index2.html" class="next-page">
                     <img src="images/logo.png" alt="logo">
                 </a>
-                <a href="posts.html" >
+                <a href="posts.html">
                     <div class="next-page">
-                        <img src="images/post.png" alt="message">
-                        <span>Post</span> 
+                        <i class="fas fa-address-card fa-2x post-icon"></i>
+                        <span>Post</span>
                     </div>
                 </a>
 
-                <a href="events.html" >
+                <a href="events.html">
                     <div class="next-page">
-                        <img src="images/event.png" alt="events">
-                        <span>Event</span> 
+                        <i class="far fa-calendar-plus fa-2x event-icon"></i>
+                        <span>Event</span>
                     </div>
                 </a>
             </div>
@@ -36,18 +39,18 @@
 
         <main>
             <div class="result">
-                <span class="add-message">Hellow here you can write message :D</span>
+                <span class="add-message">Hellow here you can write message <img src="/src/images/smile.png" alt=""></span>
             </div>
             <div class="writing">
                 <form class="text-message">
-                    <input type="text" placeholder="Aa.." class="input-message" slot="2"> 
+                    <textarea type="text" placeholder="Aa.." class="input-message" title="If you double click enter, The message will be sent "></textarea>
+                    <i class="far fa-smile fa-2x input-emoticone"></i>
                     <input type="submit" class="button-message" value="&#8594">
                 </form>
             </div>
         </main>
 
     </div>
-    <script src="script/messenger/main.js"></script>
-</body>
+    <script src="script/messenger/main.js" type="module"></script>
 
 </html>
