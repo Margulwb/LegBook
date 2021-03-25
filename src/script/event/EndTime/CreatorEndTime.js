@@ -1,3 +1,6 @@
+import { TypeEndTime } from "./TypeEndTime.js";
+import { CheckError } from "./CheckError.js";
+
 export function CreatorEndTime() {
     const timeEnd = document.querySelector('.time-end')
     const endTimeClose = document.querySelector('.label-end-time-close')
@@ -20,7 +23,7 @@ export function CreatorEndTime() {
 
             endTimeOpen.addEventListener('click', creatorEndTime.removeEndTime)
             const endTimeInput = document.querySelector('.time-end-value')
-            endTimeInput.addEventListener('input', creatorEndTime.typeEndTime)
+            endTimeInput.addEventListener('input', creatorEndTime.insertEndTime)
         },
 
         removeEndTime() {
@@ -34,12 +37,13 @@ export function CreatorEndTime() {
                 const endTimeEL = document.querySelector('.time-end-info')
                 endTimeEL.textContent = ''
             }
+            if (document.querySelector('.error-bad-time')) {
+                CheckError()
+            }
         },
 
-        typeEndTime() {
-            const endTimeValue = document.querySelector('.time-end-value')
-            const endTimeEL = document.querySelector('.time-end-info')
-            endTimeEL.textContent = endTimeValue.value
+        insertEndTime() {
+            TypeEndTime()
         }
     }
     endTimeClose.addEventListener('click', creatorEndTime.createEndTime)

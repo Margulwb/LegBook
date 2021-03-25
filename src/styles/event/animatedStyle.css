@@ -1,5 +1,14 @@
-.removeCallendarEndPage {
+.removeCallendarEndPage,
+.creatingCallendarEndPage,
+.creatingInfoEndDate,
+.creatingCallendarStartPage,
+.createArrow,
+.removeArrow,
+.createError {
     opacity: 0;
+}
+
+.removeCallendarEndPage {
     transform: translateX(-200px) rotate(30deg);
     -webkit-transform: translateX(-200px) rotate(30deg);
     -moz-transform: translateX(-200px) rotate(30deg);
@@ -8,7 +17,6 @@
 }
 
 .creatingCallendarEndPage {
-    opacity: 0;
     transform: translateX(-200px) rotate(30deg);
     -webkit-transform: translateX(-200px) rotate(30deg);
     -moz-transform: translateX(-200px) rotate(30deg);
@@ -17,7 +25,6 @@
 }
 
 .creatingInfoEndDate {
-    opacity: 0;
     transform: translateX(-100px) translateY(-50px);
     -webkit-transform: translateX(-100px) translateY(-50px);
     -moz-transform: translateX(-100px) translateY(-50px);
@@ -25,12 +32,26 @@
     -o-transform: translateX(-100px) translateY(-50px);
 }
 
+.creatingCallendarStartPage {
+    transform: translateX(-200px) rotate(30deg);
+    -webkit-transform: translateX(-200px) rotate(30deg);
+    -moz-transform: translateX(-200px) rotate(30deg);
+    -ms-transform: translateX(-200px) rotate(30deg);
+    -o-transform: translateX(-200px) rotate(30deg);
+}
+
 .createArrow {
-    opacity: 0;
     padding: 1em;
 }
 
 .removeArrow {
-    opacity: 0;
     padding-left: 1em;
+}
+
+.createError {
+    transform: translateY(-50px);
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
 }
