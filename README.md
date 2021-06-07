@@ -1,7 +1,10 @@
-Live : https://llegbook.netlify.app/
+Live : https://competent-minsky-d32e07.netlify.app
 
+Application isn't complete
+
+--------------------------------
 My problem in this project 
 
-Post:
+Post Page:
 
--I had problem with listening content in post to edit 
+-I have problem with listening content in post to edit 
