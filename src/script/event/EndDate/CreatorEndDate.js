@@ -8,27 +8,21 @@ export function CreatorEndDate() {
 
     const creatorEndDate = {
         createDateEnd() {
+            dateEnd.removeChild(labelEndDateOpen)
+
             const dateEndValue = document.createElement('div')
             dateEndValue.classList.add('date-end-el')
-
-            dateEnd.removeChild(labelEndDateOpen)
+            dateEndValue.innerHTML = "<div class='label'>End Date</div>" +
+            "<input type='date' class='input-form date-end-value'>";
+            dateEnd.appendChild(dateEndValue)
 
             const labelEndDateClose = document.createElement('button')
             labelEndDateClose.textContent = " - Remove End Date"
             labelEndDateClose.classList.add("label-end-date-close")
-
-            dateEnd.appendChild(dateEndValue)
             dateEnd.appendChild(labelEndDateClose)
 
-            dateEndValue.innerHTML = "<div class='label'>End Date</div>" +
-                "<input type='date' class='input-form date-end-value'>";
-
-            dateEndValue.addEventListener('input', creatorEndDate.insertEndDate)
+            dateEndValue.addEventListener('input',TypeEndDate)
             labelEndDateClose.addEventListener('click', creatorEndDate.removeDateEnd)
-        },
-
-        insertEndDate() {
-            TypeEndDate(callendarPageEl)
         },
 
         removeDateEnd() {

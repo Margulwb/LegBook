@@ -1,18 +1,19 @@
-import { ErrorWithEndDate } from "./ErrorWithDate.js";
+import { ErrorWithEndDate } from "../Errors/ErrorWithDate.js";
+import { CheckError } from "../Errors/CheckError.js";
 
-export function TypeEndDate(callendarPageEl) {
+export function TypeEndDate() {
+    const callendarPageEl = document.querySelector('.callendar-page')
     const dateEndValue = document.querySelector('.date-end-value')
     const dateEndEl = document.querySelector('.dateEnd-info')
     const dateEnd = new Date(dateEndValue.value).toDateString()
-
     const createdEvent = document.querySelector('.createD-event')
-
     const dateStart = document.querySelector('.dateStart-info').textContent
-    if (document.querySelector('.callendarStart-page')) {
-        if (Date.parse(dateStart) > Date.parse(dateEndValue.value)) {
-            ErrorWithEndDate()
 
-        } else if (Date.parse(dateStart) < Date.parse(dateEndValue.value)) {
+    if (document.querySelector('.callendarStart-page')) {
+        if (Date.parse(dateStart) > Date.parse(dateEndValue.value))
+            ErrorWithEndDate("End date must be later",document.querySelector('.callendarEnd-page'))
+
+         if (Date.parse(dateStart) < Date.parse(dateEndValue.value)) {
             const newDateEndEl = document.createElement('div')
             newDateEndEl.classList.add('date-info', 'dateEnd-info', 'creatingInfoEndDate')
             newDateEndEl.textContent = dateEnd
@@ -24,7 +25,7 @@ export function TypeEndDate(callendarPageEl) {
             arrow.classList.add('arrow', 'createArrow')
             arrow.innerHTML = "&#8594"
 
-            if (document.querySelector('.arrow') == null) {
+            if (!document.querySelector('.arrow')) {
                 callendarPageEl.appendChild(arrow)
                 requestAnimationFrame(() => arrow.classList.remove('createArrow'))
             }
@@ -36,7 +37,7 @@ export function TypeEndDate(callendarPageEl) {
             const callendarPage = `${day.getDate()}`
             callendarPageEndEl.textContent = callendarPage
 
-            if (document.querySelector('.callendarEnd-page') == null) {
+            if (!document.querySelector('.callendarEnd-page')) {
                 callendarPageEl.appendChild(callendarPageEndEl)
                 requestAnimationFrame(() => callendarPageEndEl.classList.remove('creatingCallendarEndPage'))
             } else {
@@ -47,10 +48,7 @@ export function TypeEndDate(callendarPageEl) {
                 requestAnimationFrame(() => callendarPageEndEl.classList.remove('creatingCallendarEndPage'))
             }
 
-            if (document.querySelector('.error-end-date')) {
-                const error = document.querySelector('.error-end-date')
-                callendarPageEl.removeChild(error)
-            }
+            CheckError(document.querySelector('.error-end-date'))
         }
     }
 }

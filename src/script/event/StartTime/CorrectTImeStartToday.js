@@ -1,14 +1,13 @@
-import { ErrorTodayTime } from "./ErrorTodayTime.js";
-import { CheckError } from "../EndTime/CheckError.js";
+import { ErrorBadTime } from "../Errors/ErrorBadTime.js";
+import { CheckError } from "../Errors/CheckError.js";
 
 export function CorrenctTimeStartToday(timeInformation) {
     let [timeEl, now, timeValue, timeStart] = timeInformation
-
     if (timeStart.getHours() < now.getHours()) {
-        ErrorTodayTime()
+        ErrorBadTime(".time-info","Bad Start Time")
     } else if (timeStart.getHours() == now.getHours()) {
         if (timeStart.getMinutes() < now.getMinutes()) {
-            ErrorTodayTime()
+            ErrorBadTime(".time-info","Bad Start Time")
         } else {
             CheckError()
             timeEl.textContent = timeValue.value

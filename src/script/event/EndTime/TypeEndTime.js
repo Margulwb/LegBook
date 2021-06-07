@@ -1,5 +1,5 @@
-import { ErrorBadTime } from "./ErrorBadTime.js";
-import { CheckError } from "./CheckError.js";
+import { ErrorBadTime } from "../Errors/ErrorBadTime.js";
+import { CheckError } from "../Errors/CheckError.js";
 import { NextDayEvent } from "../NextDayEvent.js";
 
 export function TypeEndTime() {
@@ -18,32 +18,16 @@ export function TypeEndTime() {
     const endTimeM = new Date(new Date().toDateString() + ' ' + endTimeValue.value).getMinutes()
     const endTime = endTimeH + endTimeM / 60
 
+    CheckError()
+
     if (dateEnd !== '') {
         if (Date.parse(dateStart) == Date.parse(dateEnd)) {
-            if (startTime < endTime) {
-                CheckError()
-                const newEndTimeEL = document.querySelector('.time-end-info')
-                newEndTimeEL.textContent = endTimeValue.value
-            } else {
-                ErrorBadTime()
-            }
-            if (endTimeH == 0) {
-                CheckError()
-                NextDayEvent(".callendarEnd-page", ".dateEnd-info")
-            }
-        } else {
-            endTimeEL.textContent = endTimeValue.value
-        }
+            if (startTime < endTime) endTimeEL.textContent = endTimeValue.value
+            if (startTime > endTime) ErrorBadTime('.time-end-info',"Bad End Time")
+            if (endTimeH == 0) NextDayEvent(".callendarEnd-page", ".dateEnd-info",'.date-end-value')
+        } else endTimeEL.textContent = endTimeValue.value
     } else {
-        if (startTime < endTime) {
-            CheckError()
-            const newEndTimeEL = document.querySelector('.time-end-info')
-            newEndTimeEL.textContent = endTimeValue.value
-        } else {
-            ErrorBadTime()
-        }
-        if (endTimeH == 0 && endTimeM < 1) {
-            CheckError()
-        }
+        if (startTime < endTime) endTimeEL.textContent = endTimeValue.value
+        if (startTime > endTime) ErrorBadTime('.time-end-info',"Bad End Time")
     }
 }

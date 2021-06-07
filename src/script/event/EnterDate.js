@@ -1,25 +1,29 @@
 import { GenitiveDate } from "./GenitiveDate.js";
-import { ClearInput } from "./EndTime/ClearInput.js";
 
-export function EnterDate(lastDay, dataDate, elDate) {
-    let switchInfo = document.querySelector(`${elDate}`)
+export function EnterDate(lastDay, dataDate, elDate,dateValue) {
+    let switchInfo = document.querySelector(elDate)
+    const [Day, endDateInfo, InfoDayWeek, InfoMonth, InfoDay, InfoYear, month,daysWeek] = dataDate
+    const switchInfoDW = daysWeek[parseInt(endDateInfo.getDay()) + 1]
 
-    const [Day, days, endDateInfo, InfoDW, InfoM, InfoD, InfoY, month] = dataDate
-    const switchInfoDW = days[parseInt(endDateInfo.getDay()) + 1]
+    const switchValue = document.querySelector(`${dateValue}`)
+    const value = new Date(switchValue.value)
+    const valueYear = value.getFullYear()
 
-    if (InfoD == lastDay) {
+    if (InfoDay == lastDay) {
         Day.textContent = 1
 
-        switchInfo.textContent = `${InfoDW == days[6] ? days[0] : switchInfoDW}
-            ${month[11]==month[parseInt(endDateInfo.getMonth())]?month[0]
-                :month[parseInt(endDateInfo.getMonth()) + 1]} 1 ${month[11]==month[parseInt(endDateInfo.getMonth())]?InfoY+1:InfoY}`
+        switchInfo.textContent = `${InfoDayWeek == daysWeek[6] ? daysWeek[0] : switchInfoDW}
+            ${month[11]==month[parseInt(endDateInfo.getMonth())]?month[0]:month[parseInt(endDateInfo.getMonth()) + 1]}
+             1 ${month[11]==month[parseInt(endDateInfo.getMonth())]?InfoYear+1:InfoYear}`
 
+        switchValue.value=
+            `${value.getMonth()!=11 ? valueYear : valueYear+1}-${value.getMonth()!=11 ? GenitiveDate(value.getMonth()+2) : '01'}-01`
     } else {
-        const numberDay = parseInt(Day.textContent) + 1
-        Day.textContent = numberDay
+        Day.textContent = parseInt(Day.textContent) + 1
 
-        switchInfo.textContent = `${InfoDW == days[6] ? days[0] : switchInfoDW}
-         ${InfoM} ${GenitiveDate(parseInt(endDateInfo.getDate() + 1))} ${InfoY}`
+        switchInfo.textContent = `${InfoDayWeek == daysWeek[6] ? daysWeek[0] : switchInfoDW}
+         ${InfoMonth} ${GenitiveDate(parseInt(endDateInfo.getDate() + 1))} ${InfoYear}`
+
+        switchValue.value=`${valueYear}-${GenitiveDate(value.getMonth()+1)}-${GenitiveDate(value.getDate()+1)}`
     }
-    ClearInput("00", elDate)
 }

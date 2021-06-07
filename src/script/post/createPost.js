@@ -7,7 +7,7 @@ export function CreatePost(layoutCreate) {
             let post = document.createElement('div')
             post.classList.add('post')
 
-            let postContent = document.createElement('div')
+            let postContent = document.createElement('article')
             postContent.classList.add('post-content')
             postContent.textContent = textAreaValue.value
 

@@ -1,4 +1,4 @@
-import { ErrorBadTime } from "../EndTime/ErrorBadTime.js";
+import { ErrorBadTime } from "../Errors/ErrorBadTime.js";
 
 export function CheckCorrenctTime() {
     const startTimeValue = document.querySelector('.time-input')
@@ -12,7 +12,5 @@ export function CheckCorrenctTime() {
     const endTimeM = new Date(new Date().toDateString() + ' ' + endTimeValue.value).getMinutes()
     const endTime = endTimeH + endTimeM / 60
 
-    if (startTime > endTime) {
-        ErrorBadTime()
-    }
+    if (startTime > endTime) ErrorBadTime('.time-end-info',"Bad End Time")
 }
