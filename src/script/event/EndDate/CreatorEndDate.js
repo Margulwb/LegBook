@@ -1,32 +1,23 @@
-import { TypeEndDate } from "./TypeEndDate.js";
+import { CheckCorrectData } from "./CheckCorrectData.js";
 import { DeleteEndDate } from "./DeleteEndDate.js";
+import { CreateEndDateElement } from "./CreateEndDateElement.js";
 
 export function CreatorEndDate() {
-    const callendarPageEl = document.querySelector('.callendar-page')
-    const dateEnd = document.querySelector('.date-end')
     const labelEndDateOpen = document.querySelector('.label-end-date-open')
 
     const creatorEndDate = {
         createDateEnd() {
-            dateEnd.removeChild(labelEndDateOpen)
+            CreateEndDateElement()
 
-            const dateEndValue = document.createElement('div')
-            dateEndValue.classList.add('date-end-el')
-            dateEndValue.innerHTML = "<div class='label'>End Date</div>" +
-            "<input type='date' class='input-form date-end-value'>";
-            dateEnd.appendChild(dateEndValue)
+            const dateEndValue = document.querySelector('.date-end-el')
+            dateEndValue.addEventListener('input', CheckCorrectData)
 
-            const labelEndDateClose = document.createElement('button')
-            labelEndDateClose.textContent = " - Remove End Date"
-            labelEndDateClose.classList.add("label-end-date-close")
-            dateEnd.appendChild(labelEndDateClose)
-
-            dateEndValue.addEventListener('input',TypeEndDate)
+            const labelEndDateClose = document.querySelector('.label-end-date-close')
             labelEndDateClose.addEventListener('click', creatorEndDate.removeDateEnd)
         },
 
         removeDateEnd() {
-            DeleteEndDate(callendarPageEl, dateEnd, labelEndDateOpen)
+            DeleteEndDate(labelEndDateOpen)
         }
     }
     labelEndDateOpen.addEventListener('click', creatorEndDate.createDateEnd)

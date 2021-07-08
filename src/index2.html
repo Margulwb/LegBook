@@ -6,6 +6,7 @@
     <title>LegBook</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="images/icon.png">
+    <link rel="stylesheet" href="styles/fontawesome/css/all.min.css">
 </head>
 
 <body>
@@ -19,54 +20,43 @@
             <div class="welcomeBox">
                 <h1>Welcome!</h1>
                 <h2>
-                    On this page you can <span class="post-color">post</span>
-                    , create <span class="event-color">events</span> and send
-                    <span class="message-color">messages</span> to your
-                    friends
+                    On this page you can create <span class="event-color">events</span> and send
+                    <span class="message-color">messages</span> to your friends
                 </h2>
             </div>
         </header>
 
-        <div class="box message">
-            <h1 class="label-box">Message</h1>
-            <div class="description">
-                Here You can write a&nbsp<span class="message-color">message</span>
-            </div>
-            <div class="mark">
-                <a href="messenger.html">
-                    <img src="images/message.png" alt="icon message">
-                </a>
-            </div>
-            <button class="box-button message-botton">
+        <main>
+            <div class="box message">
+                <h1 class="label-box">Message</h1>
+                <div class="description">
+                    Here You can write a&nbsp<span class="message-color">message</span>
+                </div>
+                <div class="mark">
+                    <a href="messenger.html">
+                        <i class="far fa-comment-dots"></i>
+                    </a>
+                </div>
+                <button class="box-button message-botton">
                 <a href="messenger.html" class="forwarding-button">Write</a>
             </button>
-        </div>
+            </div>
 
-        <div class="box event">
-            <h1 class="label-box">Event</h1>
-            <div class="description">
-                Here you can create an&nbsp<span class="event-color">event</span>
-            </div>
-            <div class="mark">
-                <a href="events.html"><img src="images/event.png" alt="icon event"></a>
-            </div>
-            <button class="box-button event-botton">
+            <div class="box event">
+                <h1 class="label-box">Event</h1>
+                <div class="description">
+                    Here you can create an&nbsp<span class="event-color">event</span>
+                </div>
+                <div class="mark">
+                    <a href="events.html">
+                        <img src="images/event.png" alt="icon event">
+                    </a>
+                </div>
+                <button class="box-button event-botton">
                 <a href="events.html" class="forwarding-button">Create</a>
             </button>
-        </div>
-
-        <div class="box post">
-            <h1 class="label-box">Posts</h1>
-            <div class="description">
-                Here you can write a &nbsp<span class="post-color"> post</span>
             </div>
-            <div class="mark">
-                <a href="posts.html"><img src="images/post.png" alt="icon posts"></a>
-            </div>
-            <button class="box-button post-botton">
-                <a href="posts.html" class="forwarding-button">Post</a>
-            </button>
-        </div>
+        </main>
 
     </div>
 </body>

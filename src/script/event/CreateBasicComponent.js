@@ -1,9 +1,9 @@
+import { CheckCorrenctTime } from "./StartTime/CheckCorrenctTime.js";
+import { CheckError } from "./Errors/CheckError.js";
+import { CorrenctTimeStartToday } from "./StartTime/CorrectTImeStartToday.js";
 import { ErrorWithEndDate } from "./Errors/ErrorWithDate.js";
 import { GenitiveDate } from "./GenitiveDate.js";
-import { CheckCorrenctTime } from "./StartTime/CheckCorrenctTime.js";
-import { CorrenctTimeStartToday } from "./StartTime/CorrectTImeStartToday.js";
 import { NextDayEvent } from "./NextDayEvent.js";
-import { CheckError } from "./Errors/CheckError.js";
 
 export function CreateBasicComponent(startDate) {
     let [dateStartEl, timeEl, callendarPageStartEl] = startDate
@@ -30,7 +30,7 @@ export function CreateBasicComponent(startDate) {
             const timeStart = new Date(new Date().toDateString() + ' ' + timeValue.value)
             let timeInformation = [timeEl, now, timeValue, timeStart]
 
-            if (timeStart.getHours() == 0) NextDayEvent(".callendarStart-page", ".dateStart-info")
+            if (timeStart.getHours() == 0) NextDayEvent(".callendarStart-page", ".dateStart-info", ".date-start-value")
             if (document.querySelector('.time-end-info').textContent != '') CheckCorrenctTime()
             if (now.toDateString() == dateStartEl.textContent) CorrenctTimeStartToday(timeInformation)
             if (now.toDateString() != dateStartEl.textContent) timeEl.textContent = timeValue.value
@@ -54,8 +54,8 @@ export function CreateBasicComponent(startDate) {
                 const day = new Date(dateStartValue.value)
                 const callendarPage = `${day.getDate()}`
                 callendarPageStartEl.textContent = callendarPage
-            } else{
-                ErrorWithEndDate("Start date must be later",callendarPageStartEl)
+            } else {
+                ErrorWithEndDate("Start date must be later", callendarPageStartEl)
             }
         },
 

@@ -1,6 +1,7 @@
 import { ErrorBadTime } from "../Errors/ErrorBadTime.js";
 import { CheckError } from "../Errors/CheckError.js";
 import { NextDayEvent } from "../NextDayEvent.js";
+import { CreateEndDateElement } from "../EndDate/CreateEndDateElement.js";
 
 export function TypeEndTime() {
     const endTimeValue = document.querySelector('.time-end-value')
@@ -23,11 +24,12 @@ export function TypeEndTime() {
     if (dateEnd !== '') {
         if (Date.parse(dateStart) == Date.parse(dateEnd)) {
             if (startTime < endTime) endTimeEL.textContent = endTimeValue.value
-            if (startTime > endTime) ErrorBadTime('.time-end-info',"Bad End Time")
-            if (endTimeH == 0) NextDayEvent(".callendarEnd-page", ".dateEnd-info",'.date-end-value')
+            if (startTime > endTime) ErrorBadTime('.time-end-info', "Bad End Time")
+            if (endTimeH == 0) NextDayEvent(".callendarEnd-page", ".dateEnd-info", '.date-end-value')
         } else endTimeEL.textContent = endTimeValue.value
     } else {
         if (startTime < endTime) endTimeEL.textContent = endTimeValue.value
-        if (startTime > endTime) ErrorBadTime('.time-end-info',"Bad End Time")
+        if (startTime > endTime) ErrorBadTime('.time-end-info', "Bad End Time")
+        if (endTimeH == 0) CreateEndDateElement('NEXT_DAY')
     }
 }

@@ -1,6 +1,9 @@
 import { CheckError } from "../Errors/CheckError.js";
 
-export function DeleteEndDate(callendarPageEl, dateEnd, labelEndDateOpen) {
+export function DeleteEndDate(labelEndDateOpen) {
+    const callendarPageEl = document.querySelector('.callendar-page')
+    const dateEnd = document.querySelector('.date-end')
+
     if (document.querySelector('.arrow') && document.querySelector('.callendarEnd-page')) {
         const arrow = document.querySelector('.arrow')
         setTimeout(() =>
