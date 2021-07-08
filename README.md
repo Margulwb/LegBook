@@ -1,3 +1,3 @@
-Live : https://competent-minsky-d32e07.netlify.app
+Live : https://awesome-franklin-17ad99.netlify.app/
 
 Application isn't complete
