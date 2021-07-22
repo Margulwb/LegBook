@@ -4,11 +4,11 @@ import { CreatorEndDate } from "./EndDate/CreatorEndDate.js";
 import { CreatorEndTime } from "./EndTime/CreatorEndTime.js";
 
 window.onload = () => {
-    let date = document.querySelector('.dateStart-info')
-    let time = document.querySelector('.time-info')
-    let callendarPageStart = document.querySelector('.callendarStart-page')
+    const date = document.querySelector('.dateStart-info')
+    const time = document.querySelector('.time-info')
+    const callendarPageStart = document.querySelector('.callendarStart-page')
 
-    let startDate = [date, time, callendarPageStart]
+    const startDate = [date, time, callendarPageStart]
 
     SetLocalTime(startDate)
     CreateBasicComponent(startDate)

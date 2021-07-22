@@ -1,3 +1,3 @@
-Live : https://competent-minsky-d32e07.netlify.app
+Live : https://upbeat-babbage-8e977d.netlify.app
 
-Application isn't complete
+App Version - 1.0

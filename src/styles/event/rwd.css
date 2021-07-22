@@ -95,7 +95,6 @@
     }
     .create-event,
     .view-event {
-        height: 90vh;
         margin: 1em;
     }
     .value-description {

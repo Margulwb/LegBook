@@ -1,9 +1,10 @@
 import { CheckCorrenctTime } from "./StartTime/CheckCorrenctTime.js";
-import { CheckError } from "./Errors/CheckError.js";
 import { CorrenctTimeStartToday } from "./StartTime/CorrectTImeStartToday.js";
-import { ErrorWithEndDate } from "./Errors/ErrorWithDate.js";
+import { DateStart } from "./StartDate/DateStart.js";
 import { GenitiveDate } from "./GenitiveDate.js";
 import { NextDayEvent } from "./NextDayEvent.js";
+import { CheckError } from "./Errors/CheckError.js";
+import { ErrorWithEndDate } from "./Errors/ErrorWithDate.js";
 
 export function CreateBasicComponent(startDate) {
     let [dateStartEl, timeEl, callendarPageStartEl] = startDate
@@ -26,6 +27,12 @@ export function CreateBasicComponent(startDate) {
             nameEl.textContent = nameValue.value
         },
 
+
+        description() {
+            const desEl = document.querySelector('.description')
+            desEl.textContent = desValue.value
+        },
+
         time() {
             const timeStart = new Date(new Date().toDateString() + ' ' + timeValue.value)
             let timeInformation = [timeEl, now, timeValue, timeStart]
@@ -37,33 +44,9 @@ export function CreateBasicComponent(startDate) {
         },
 
         dateStart() {
-            const callendarPageEl = document.querySelector('.callendar-page')
-            const now = new Date()
-            const dateStart = new Date(dateStartValue.value).toDateString()
-
-            if (Date.parse(dateStart) > Date.parse(now)) {
-                if (!document.querySelector('.callendarStart-page')) {
-                    callendarPageEl.appendChild(callendarPageStartEl)
-                    requestAnimationFrame(() => callendarPageStartEl.classList.remove('createError'))
-                }
-
-                CheckError(document.querySelector('.error-end-date'))
-
-                dateStartEl.innerHTML = dateStart
-
-                const day = new Date(dateStartValue.value)
-                const callendarPage = `${day.getDate()}`
-                callendarPageStartEl.textContent = callendarPage
-            } else {
-                ErrorWithEndDate("Start date must be later", callendarPageStartEl)
-            }
+            const dateData = [callendarPageStartEl, dateStartValue, dateStartEl]
+            DateStart(dateData)
         },
-
-        description() {
-            const desEl = document.querySelector('.description')
-            desEl.textContent = desValue.value
-        },
-
     }
 
     nameValue.addEventListener('input', creator.name)

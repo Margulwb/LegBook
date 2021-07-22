@@ -1,11 +1,11 @@
-export function ErrorBadTime(element,label) {
+import { CreateElement } from "../CreateElement.js";
+
+export function ErrorBadTime(element, label) {
     const timeElement = document.querySelector(`${element}`)
-    const error = document.createElement('div')
-    error.classList.add('error-bad-time')
-    error.textContent = label
+    const error = CreateElement('div', 'textContent', label, 'error-bad-time')
 
     const timeFather = document.querySelector('.time')
     timeElement.textContent = ''
     if (!document.querySelector('.error-bad-time'))
-    timeFather.prepend(error)
+        timeFather.prepend(error)
 }

@@ -1,26 +1,23 @@
 import { CheckError } from "../Errors/CheckError.js";
+import { CreateElement } from "../CreateElement.js";
 
 export function TypeEmptyEndDate() {
     const callendarPageEl = document.querySelector('.callendar-page')
     const dateEndEl = document.querySelector('.dateEnd-info')
     const createdEvent = document.querySelector('.createD-event')
 
-    const newDateEndEl = document.createElement('div')
-    newDateEndEl.classList.add('date-info', 'dateEnd-info', 'creatingInfoEndDate')
+    const newDateEndEl = CreateElement('div', '', '', 'date-info', 'dateEnd-info', 'creatingInfoEndDate')
 
     createdEvent.replaceChild(newDateEndEl, dateEndEl)
     requestAnimationFrame(() => newDateEndEl.classList.remove('creatingInfoEndDate'))
 
-    const arrow = document.createElement('div')
-    arrow.classList.add('arrow', 'createArrow')
-    arrow.innerHTML = "&#8594"
+    const arrow = CreateElement('div', 'innerHTML', '&#8594', 'arrow', 'createArrow')
     if (!document.querySelector('.arrow')) {
         callendarPageEl.appendChild(arrow)
         requestAnimationFrame(() => arrow.classList.remove('createArrow'))
     }
 
-    const callendarPageEndEl = document.createElement('div')
-    callendarPageEndEl.classList.add('callendarEnd-page', 'creatingCallendarEndPage')
+    const callendarPageEndEl = CreateElement('div', '', '', 'callendarEnd-page', 'creatingCallendarEndPage')
 
     if (!document.querySelector('.callendarEnd-page')) {
         callendarPageEl.appendChild(callendarPageEndEl)

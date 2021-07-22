@@ -3,7 +3,7 @@ import { EnterDate } from "./EnterDate.js";
 import { CheckError } from "./Errors/CheckError.js";
 
 export function NextDayEvent(callendar, elDate, dateValue, action = '') {
-    const startDay = document.querySelector(`${callendar}`)
+    let startDay = document.querySelector(callendar)
     if (callendar == ".callendarEnd-page") {
         const endTimeEL = document.querySelector('.time-end-info')
         const endTimeValue = document.querySelector('.time-end-value')
@@ -23,19 +23,15 @@ export function NextDayEvent(callendar, elDate, dateValue, action = '') {
 
     CheckError()
 
-    console.log('.date-start-value');
-    console.log(elDate);
-    console.log(`${elDate}`);
-
     if (action === '') {
-        const startDateInfo = new Date(document.querySelector(`${elDate}`).textContent)
+        const startDateInfo = new Date(document.querySelector(elDate).textContent)
         const InfoDayWeek = daysWeek[parseInt(startDateInfo.getDay())]
         const InfoMonth = month[startDateInfo.getMonth()]
         const InfoDay = GenitiveDate(startDateInfo.getDate())
         const InfoYear = startDateInfo.getFullYear()
 
         const dataDate = [startDay, startDateInfo, InfoDayWeek, InfoMonth, InfoDay, InfoYear, month, daysWeek]
-        const dataElement = [`${elDate}`, dateValue, action]
+        const dataElement = [elDate, dateValue, action]
 
         if (InfoMonth == monthEven.find(m => m == InfoMonth)) EnterDate(31, dataDate, dataElement)
         if (InfoMonth == monthOdd.find(m => m == InfoMonth)) EnterDate(30, dataDate, dataElement)
@@ -44,7 +40,7 @@ export function NextDayEvent(callendar, elDate, dateValue, action = '') {
     }
 
     if (action === 'CREATE') {
-        const startDateInfo = new Date(document.querySelector('.date-start-value').value)
+        const startDateInfo = new Date(document.querySelector(elDate).textContent)
 
         const InfoDayWeek = daysWeek[parseInt(startDateInfo.getDay())]
         const InfoMonth = month[startDateInfo.getMonth()]
@@ -52,23 +48,12 @@ export function NextDayEvent(callendar, elDate, dateValue, action = '') {
         const InfoYear = startDateInfo.getFullYear()
 
         const dataDate = [startDay, startDateInfo, InfoDayWeek, InfoMonth, InfoDay, InfoYear, month, daysWeek]
-        const dataElement = ['.date-start-value', dateValue, action]
-        let enterDateValue
-            /* const a = {
-                evenMonthMethot() {
-                    EnterDate(31, dataDate, dataElement)
-                }
-            } */
+        const dataElement = [".dateEnd-info", dateValue, action]
 
-        if (InfoMonth == monthEven.find(m => m == InfoMonth)) {
-            enterDateValue = EnterDate(31, dataDate, dataElement)
-        }
+        if (InfoMonth == monthEven.find(m => m == InfoMonth)) EnterDate(31, dataDate, dataElement)
         if (InfoMonth == monthOdd.find(m => m == InfoMonth)) EnterDate(30, dataDate, dataElement)
         if (InfoMonth == monthFeb)
             InfoYear % 4 == 0 ? EnterDate(29, dataDate, dataElement) : EnterDate(28, dataDate, dataElement)
-
-        console.log(enterDateValue);
-        return enterDateValue
     }
 }
 /* if (action === 'CREATE') {

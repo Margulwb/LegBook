@@ -1,13 +1,12 @@
 import { CheckError } from "./CheckError.js";
+import { CreateElement } from "../CreateElement.js";
 
-export function ErrorWithEndDate(label,element) {
+export function ErrorWithEndDate(label, element) {
     const callendarPageEl = document.querySelector('.callendar-page')
     const dateEndEl = document.querySelector('.dateEnd-info')
     dateEndEl.textContent = ''
 
-    const error = document.createElement('div')
-    error.classList.add('error-end-date', 'createError')
-    error.textContent = label
+    const error = CreateElement('div', 'textContent', label, 'error-end-date', 'createError')
 
     if (!document.querySelector('.error-end-date')) {
         callendarPageEl.appendChild(error)

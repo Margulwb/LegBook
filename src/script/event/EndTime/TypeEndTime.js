@@ -30,6 +30,10 @@ export function TypeEndTime() {
     } else {
         if (startTime < endTime) endTimeEL.textContent = endTimeValue.value
         if (startTime > endTime) ErrorBadTime('.time-end-info', "Bad End Time")
-        if (endTimeH == 0) CreateEndDateElement('NEXT_DAY')
+        if (endTimeH == 0) {
+            CheckError(document.querySelector('.date-end-el'))
+            CheckError(document.querySelector('.label-end-date-close'))
+            CreateEndDateElement('NEXT_DAY')
+        }
     }
 }
